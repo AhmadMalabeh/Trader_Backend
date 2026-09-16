@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Trader_Backend.Domain.Entities
 {
-    public class CarAdData : AdData
+    public class CarForSellAdData : AdData
     {
         public int StructureTypeID { get; set; }
         public int NumberOfSeats { get; set; }

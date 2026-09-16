@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Trader_Backend.Domain.Entities
 {
-    public abstract class AdData
+    public class AdData
     {
     }
 }

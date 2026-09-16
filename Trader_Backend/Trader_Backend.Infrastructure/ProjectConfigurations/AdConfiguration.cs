@@ -70,6 +70,8 @@ namespace Trader_Backend.Infrastructure.ProjectConfigurations
             builder.OwnsOne(a => a.AdData, b =>
             {
                 b.ToJson();
+
+                
             });
 
 
