@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Trader_Backend.API.Extensions; // 🚀 تأكد من استدعاء هذا الـ Namespace لتفعيل ToActionResult
 using Trader_Backend.Application.Common;
@@ -10,6 +11,7 @@ namespace Trader_Backend.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
