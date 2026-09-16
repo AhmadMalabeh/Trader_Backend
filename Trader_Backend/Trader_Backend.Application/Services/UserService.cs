@@ -54,6 +54,7 @@ namespace Trader_Backend.Application.Services
 
             // 4. الحفظ عبر الـ Repository
             await _userRepository.UpdateUserAsync(user);
+            await _userRepository.SaveChangesAsync();
 
             // 🎉 إرجاع كائن النجاح
             return OperationResult<User>.Success(user);
