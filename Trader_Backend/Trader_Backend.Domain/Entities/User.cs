@@ -9,7 +9,7 @@ namespace Trader_Backend.Domain.Entities
         public int ID { get; set; }
         public string FullName { get; set; } = null!;
         public string EntraID { get; set; } = null!;
-        public string PhoneNumber { get; set; } = null!;
+        public string? PhoneNumber { get; set; }
         public string Email { get; set; } = null!;
         public string? PersonalPictureURL { get; set; }
         public string Role { get; set; } = "User";
