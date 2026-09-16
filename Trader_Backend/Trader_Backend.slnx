@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Trader_Backend.API/Trader_Backend.API.csproj" />
+  <Project Path="Trader_Backend.Application/Trader_Backend.Application.csproj" />
+  <Project Path="Trader_Backend.Domain/Trader_Backend.Domain.csproj" />
+  <Project Path="Trader_Backend.Infrastructure/Trader_Backend.Infrastructure.csproj" />
+</Solution>
