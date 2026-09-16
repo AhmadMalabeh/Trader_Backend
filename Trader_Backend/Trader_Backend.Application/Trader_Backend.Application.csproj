@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Trader_Backend.Domain\Trader_Backend.Domain.csproj" />
+    <PackageReference Include="FluentValidation" Version="12.1.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTOs\" />
+    <ProjectReference Include="..\Trader_Backend.Domain\Trader_Backend.Domain.csproj" />
   </ItemGroup>
 
 </Project>
