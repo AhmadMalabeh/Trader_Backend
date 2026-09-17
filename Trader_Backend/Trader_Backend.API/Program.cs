@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Web;
+using Trader_Backend.API.Middleware;
 using Trader_Backend.Application.Interfaces.Repositories;
 using Trader_Backend.Application.Interfaces.Services;
 using Trader_Backend.Application.Services;
@@ -49,6 +50,8 @@ namespace Trader_Backend.API
 
 
             var app = builder.Build();
+
+            app.UseMiddleware<ExceptionHandlingMiddleware>();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
