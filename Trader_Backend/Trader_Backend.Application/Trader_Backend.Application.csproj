@@ -14,4 +14,8 @@
     <ProjectReference Include="..\Trader_Backend.Domain\Trader_Backend.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Validators\InvitationCodeValidators\" />
+  </ItemGroup>
+
 </Project>
