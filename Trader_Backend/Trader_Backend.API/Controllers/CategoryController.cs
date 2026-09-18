@@ -21,7 +21,6 @@ namespace Trader_Backend.API.Controllers
 
         
         [HttpGet("{id:int:min(1)}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetCategoryById(int id)
         {
             var category = await _categoryService.GetCategoryByIdAsync(id);
@@ -33,11 +32,10 @@ namespace Trader_Backend.API.Controllers
         }
 
         [HttpGet("get-all")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllCategories()
         {
             var categories = await _categoryService.GetAllCategoriesAsync();
-            return Ok(categories);
+            return this.ToActionResult(OperationResult<IEnumerable<CategoryViewDto>>.Success(categories));
         }
 
         [HttpPost("add")]
