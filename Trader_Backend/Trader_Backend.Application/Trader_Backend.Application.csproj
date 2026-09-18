@@ -7,15 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Validators\InvitationCodeValidators\**" />
+    <EmbeddedResource Remove="Validators\InvitationCodeValidators\**" />
+    <None Remove="Validators\InvitationCodeValidators\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="12.1.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Trader_Backend.Domain\Trader_Backend.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Validators\InvitationCodeValidators\" />
   </ItemGroup>
 
 </Project>

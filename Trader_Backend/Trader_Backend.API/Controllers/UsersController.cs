@@ -30,7 +30,7 @@ namespace Trader_Backend.API.Controllers
             if (user == null)
             {
                 // نمرر الفشل للـ Extension Method لتعود تلقائياً بـ NotFound 404
-                return this.ToActionResult(OperationResult<User>.Failure(ApplicationErrorCode.UserNotFound, "عذراً، المستخدم غير موجود في النظام."));
+                return this.ToActionResult(OperationResult<User>.Failure(ApplicationErrorCode.NotFound, "عذراً، المستخدم غير موجود في النظام."));
             }
 
             return this.ToActionResult(OperationResult<User>.Success(user));
@@ -49,7 +49,7 @@ namespace Trader_Backend.API.Controllers
 
             if (user == null)
             {
-                return this.ToActionResult(OperationResult<User>.Failure(ApplicationErrorCode.UserNotFound, "عذراً، لا يوجد مستخدم مسجل بهذا البريد الإلكتروني."));
+                return this.ToActionResult(OperationResult<User>.Failure(ApplicationErrorCode.NotFound, "عذراً، لا يوجد مستخدم مسجل بهذا البريد الإلكتروني."));
             }
 
             return this.ToActionResult(OperationResult<User>.Success(user));
@@ -68,7 +68,7 @@ namespace Trader_Backend.API.Controllers
 
             if (user == null)
             {
-                return this.ToActionResult(OperationResult<User>.Failure(ApplicationErrorCode.UserNotFound, "عذراً، هذا الحساب غير مربوط بأي مستخدم لدينا."));
+                return this.ToActionResult(OperationResult<User>.Failure(ApplicationErrorCode.NotFound, "عذراً، هذا الحساب غير مربوط بأي مستخدم لدينا."));
             }
 
             return this.ToActionResult(OperationResult<User>.Success(user));

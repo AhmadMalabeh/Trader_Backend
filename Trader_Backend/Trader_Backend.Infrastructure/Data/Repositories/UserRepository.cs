@@ -54,7 +54,7 @@ namespace Trader_Backend.Infrastructure.Data.Repositories
         public async Task<InvitationCode?> GetInvitationCodeAsync(string code)
         {
             // فحص الكود ومطابقته مع عمود الـ CodeHash
-            return await _context.InvitationCodes.FirstOrDefaultAsync(ic => ic.CodeHash == code);
+            return await _context.InvitationCodes.AsNoTracking().FirstOrDefaultAsync(ic => ic.CodeHash == code);
         }
 
         public async Task AddUserAsync(User user)

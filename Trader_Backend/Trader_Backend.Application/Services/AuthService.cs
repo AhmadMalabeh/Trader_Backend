@@ -50,19 +50,19 @@ namespace Trader_Backend.Application.Services
             // 3. 🛑 إذا كان مستخدم عادي (User)، نجبره على تدقيق كود الدعوة في الـ Database
             if (string.IsNullOrEmpty(invitationCode))
             {
-                return OperationResult<User>.Failure(ApplicationErrorCode.InvitationCodeNotFound, "عذراً، التسجيل كمستخدم يتطلب إدخال كود دعوة صالح.");
+                return OperationResult<User>.Failure(ApplicationErrorCode.NotFound, "عذراً، التسجيل كمستخدم يتطلب إدخال كود دعوة صالح.");
             }
 
             var invite = await _userRepository.GetInvitationCodeAsync(invitationCode);
 
             if (invite == null)
             {
-                return OperationResult<User>.Failure(ApplicationErrorCode.InvitationCodeNotFound, "كود الدعوة الذي أدخلته غير صحيح.");
+                return OperationResult<User>.Failure(ApplicationErrorCode.NotFound, "كود الدعوة الذي أدخلته غير صحيح.");
             }
 
             if (invite.IsUsed)
             {
-                return OperationResult<User>.Failure(ApplicationErrorCode.InvitationCodeAlreadyUsed, "عذراً، كود الدعوة هذا تم استخدامه من قبل.");
+                return OperationResult<User>.Failure(ApplicationErrorCode.BadRequest, "عذراً، كود الدعوة هذا تم استخدامه من قبل.");
             }
 
             // 4. إنشاء الحساب العادي واستهلاك الكود

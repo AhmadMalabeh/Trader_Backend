@@ -37,20 +37,20 @@ namespace Trader_Backend.API.Controllers
         {
             if(string.IsNullOrWhiteSpace(code))
             {
-                return this.ToActionResult(OperationResult<bool>.Failure(ApplicationErrorCode.InvitationCodeNotFound, "عذراً، يجب إدخال كود الدعوة."));
+                return this.ToActionResult(OperationResult<bool>.Failure(ApplicationErrorCode.BadRequest, "عذراً، يجب إدخال كود الدعوة."));
             }
 
             var entraId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? User.FindFirst("oid")?.Value;
             if(entraId == null)
             {
-                return this.ToActionResult(OperationResult<User>.Failure(ApplicationErrorCode.UserNotFound, "عذراً، هذا الحساب غير مربوط بأي مستخدم لدينا."));
+                return this.ToActionResult(OperationResult<User>.Failure(ApplicationErrorCode.NotFound, "عذراً، هذا الحساب غير مربوط بأي مستخدم لدينا."));
             }
 
             var user = await _userService.GetUserByEntraIdAsync(entraId);
 
             if(user == null)
             {
-                return this.ToActionResult(OperationResult<User>.Failure(ApplicationErrorCode.UserNotFound, "عذراً، هذا الحساب غير مربوط بأي مستخدم لدينا."));
+                return this.ToActionResult(OperationResult<User>.Failure(ApplicationErrorCode.NotFound, "عذراً، هذا الحساب غير مربوط بأي مستخدم لدينا."));
             }
 
             var result = await _invitationCodeService.AddNewInvitationCodeAsync(code, user.ID);
@@ -63,7 +63,7 @@ namespace Trader_Backend.API.Controllers
         {
             if(string.IsNullOrWhiteSpace(code))
             {
-                return this.ToActionResult(OperationResult<bool>.Failure(ApplicationErrorCode.InvitationCodeNotFound, "عذراً، يجب إدخال كود الدعوة."));
+                return this.ToActionResult(OperationResult<bool>.Failure(ApplicationErrorCode.NotFound, "عذراً، يجب إدخال كود الدعوة."));
             }
             var result = await _invitationCodeService.DeleteInvitationCodeAsync(code);
             return this.ToActionResult(result);

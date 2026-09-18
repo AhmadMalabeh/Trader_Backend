@@ -35,6 +35,8 @@ namespace Trader_Backend.API
             builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<IInvitationCodeRepository, InvitationCodeRepository>();
             builder.Services.AddScoped<IInvitationCodeService, InvitationCodeService>();
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 
             builder.Services.AddControllers();

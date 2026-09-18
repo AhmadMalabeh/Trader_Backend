@@ -31,7 +31,7 @@ namespace Trader_Backend.Application.Services
             var code = await _invitationCodeRepository.GetInvitationCodeByCodeAsync(Code);
             if(code == null)
             {
-                return OperationResult<bool>.Failure(ApplicationErrorCode.InvitationCodeNotFound,"Invitation code not found.");
+                return OperationResult<bool>.Failure(ApplicationErrorCode.NotFound,"Invitation code not found.");
             }
 
             await _invitationCodeRepository.DeleteInvitationCodeByIDAsync(code);

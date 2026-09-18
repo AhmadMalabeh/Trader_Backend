@@ -44,7 +44,7 @@ namespace Trader_Backend.Application.Services
             if (user == null)
             {
                 // 🎯 نرجع الفشل باستخدام الـ Enum والرسالة العربية بشكل Type-Safe
-                return OperationResult<User>.Failure(ApplicationErrorCode.UserNotFound, "عذراً، المستخدم غير موجود في النظام.");
+                return OperationResult<User>.Failure(ApplicationErrorCode.NotFound, "عذراً، المستخدم غير موجود في النظام.");
             }
 
             // 3. تعديل البيانات إذا وُجد
